@@ -9,4 +9,15 @@
 <!-- backbone -->
 <script src="{% static 'libs/backbone/backbone.js' %}"></script>
 
+<!-- init application -->
+<script type="text/javascript">
+    var App = {};
+    App.views = {};
+    App.models = {};
+    App.config = {
+        'templatesDir': {{ STATIC_URL }}
+    };
+</script>
+
 <!-- app -->
+<script src="{% static 'js/app.js' %}"></script>
