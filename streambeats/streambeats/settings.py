@@ -29,17 +29,26 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = (
+DJANGO_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'application.account',
+)
+
+INTERNAL_APPS = (
     'south',
     'rest_framework'
 )
+
+STREAMBEATS_APPS = (
+    'application.account',
+)
+
+INSTALLED_APPS = DJANGO_APPS + STREAMBEATS_APPS + INTERNAL_APPS
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,10 +87,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-AUTH_USER_MODEL = 'account.User'
-
+#AUTH_USER_MODEL = 'account.User'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 STATIC_URL = '/static/'

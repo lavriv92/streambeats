@@ -1,2 +1,2 @@
 *.pyc
-streambeats_client/bower_components/*
+.idea/*
