@@ -7,5 +7,7 @@ urlpatterns = patterns('',
     # core
     url(r'^$', 'application.main.views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^account/', include('application.account.urls')),
+
+    #Api
+    url(r'^api/account/', include('application.account.apis')),
 )

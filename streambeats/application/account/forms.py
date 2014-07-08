@@ -1,32 +1,50 @@
 from django import forms
-from django.contrib import auth
+from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.forms import ReadOnlyPasswordHashField
+
+from .models import User
 
 
-class LoginForm(forms.Form):
-
+class UserCreationForm(forms.ModelForm):
     """
-        Form for custom authentication...
+    Form for create custom user in admin.
     """
-
-    username = forms.CharField()
-    password = forms.CharField(
-        widget=forms.PasswordInput()
+    password1 = forms.CharField(
+        label=_('password'),
+        widget=forms.PasswordInput
+    )
+    password2 = forms.CharField(
+        label=_('confirm password'),
+        widget=forms.PasswordInput
     )
 
-    def __init__(self, *args, **kwargs):
-        self.request = kwargs.pop('request')
-        super(LoginForm, self).__init__(*args, **kwargs)
+    def clean_password2(self):
+        password1 = self.cleaned_data.get('password1', None)
+        password2 = self.cleaned_data.get('password2', None)
 
-    def clean(self):
-        """
-            Login user on clean action
-        """
+        if password1 is not None and password2 is not None\
+                and password1 != password2:
+            raise forms.ValidationError(_('Passwords don\'t match'))
 
-        username = self.cleaned_data.get('username')
-        password = self.cleaned_data.get('password')
+    def save(self, commit=True):
+        password = self.cleaned_data.get('password1')
+        user = super(UserCreationForm, self).save(commit=False)
+        user.set_password(password)
 
-        user = auth.authenticate(username=username, password=password)
+        if commit:
+            user.save()
+        return user
 
-        if user:
-            auth.login(self.request, user)
-        return super(LoginForm, self).clean()
+
+class UserChangeForm(forms.ModelForm):
+    """
+    Form for edit custom user in admin.
+    """
+    password = ReadOnlyPasswordHashField()
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'first_name', 'last_name', )
+
+    def clean_password(self):
+        return self.initial['password']
