@@ -14,7 +14,6 @@ class UserManager(BaseUserManager):
             last_name=last_name
         )
         user.set_password(password)
-        #user.save(commit=False)
         return user
 
     def create_user(self, username,
@@ -43,6 +42,7 @@ class UserManager(BaseUserManager):
         return user
 
 
+
 class User(AbstractBaseUser):
     """
     Custom user model
@@ -67,7 +67,7 @@ class User(AbstractBaseUser):
 
     USERNAME_FIELD = 'username'
 
-    class Meta:
+    class  Meta:
         verbose_name = _('user')
         verbose_name_plural = _('users')
         ordering = ('-created', )

@@ -19,4 +19,9 @@ class UserReadSerializer(serializers.ModelSerializer):
 class UserWriteSerializer(serializers.ModelSerializer):
 
     class Meta:
+        fields = (
+            'username',
+            'email',
+            'password'
+        )
         model = User
