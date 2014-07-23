@@ -1,23 +1,2 @@
 {% load static %}
-
-<!-- jquery  -->
-<script src="{% static 'libs/jquery/dist/jquery.js' %}"></script>
-
-<!-- underscore -->
-<script src="{% static 'libs/underscore/underscore.js' %}"></script>
-
-<!-- backbone -->
-<script src="{% static 'libs/backbone/backbone.js' %}"></script>
-
-<!-- init application -->
-<script type="text/javascript">
-    var App = {};
-    App.views = {};
-    App.models = {};
-    App.config = {
-        'templatesDir': {{ STATIC_URL }}
-    };
-</script>
-
-<!-- app -->
-<script src="{% static 'js/app.js' %}"></script>
+<script data-main="static/js/main" src="{% static 'libs/requirejs/require.js' %}"></script>

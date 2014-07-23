@@ -1,17 +1,14 @@
-App.Router = Backbone.Router.extend({
-    routes: {
-        '': 'index',
-        'test': 'test'
-    },
-
-    'index': function () {
-        console.log('putin huilo');
-    },
-
-    test: function () {
-        console.log('test');
-    }
+define([
+  'jquery',
+  'underscore',
+  'backbone'    
+], function($, _, Backbone) {
+  
+  var initialize = function () {
+    console.log('Hello');
+  };
+  
+  return {
+    initialize: initialize
+  };
 });
-
-var router = new App.Router();
-Backbone.history.start();
