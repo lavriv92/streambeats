@@ -1,20 +1,17 @@
 define([
   'jquery',
   'underscore',
-  'backbone'
-], function($, _, Backbone) {
+  'backbone',
+  'core/views/index_view'
+], function($, _, Backbone, IndexView) {
   var AppRouter = Backbone.Router.extend({
     routes: {
-      '': 'index',
-      'test': 'test'
+      '': 'index'
     },
 
     index: function() {
-      console.log('index');
-    },
-
-    test: function() {
-      console.log('test');
+      var index_view = new IndexView();
+      index_view.render();
     }
   });
 
