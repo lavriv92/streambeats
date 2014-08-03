@@ -1,5 +1,7 @@
+from rest_framework import views
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
 from .models import User
 from .serializers import UserReadSerializer, UserWriteSerializer
@@ -11,6 +13,7 @@ class UserViewSet(viewsets.ModelViewSet):
     url: /account/users
     """
     model = User
+    permission_classes = (IsAuthenticated, )
 
     def get_serializer_class(self):
         """
@@ -21,11 +24,10 @@ class UserViewSet(viewsets.ModelViewSet):
         return UserReadSerializer
 
 
-class CurrentUserViewSet(viewsets.ViewSet):
-    """
-    Resource for current user.
-    url: /account/current_user
-    """
-    def get(self):
-        serializer = UserReadSerializer(self.request.user)
+class CurrentUserView(views.APIView):
+
+    permission_classes = (IsAuthenticated, )
+
+    def get(self, request, format=None):
+        serializer = UserReadSerializer(request.user)
         return Response(serializer.data)
