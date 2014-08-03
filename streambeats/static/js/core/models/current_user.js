@@ -3,6 +3,6 @@ define([
     'backbone'
 ], function(_, Backbone) {
   var CurrentUser = Backbone.Model.extend({
-    url: '/account/current_user'
-  })
+    url: '/account/users/current'
+  });
 });
