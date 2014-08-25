@@ -4,7 +4,8 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 from .models import User
-from .serializers import UserReadSerializer, UserWriteSerializer
+from .serializers import UserReadSerializer, UserWriteSerializer,\
+    LoginSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -31,3 +32,16 @@ class CurrentUserView(views.APIView):
     def get(self, request, format=None):
         serializer = UserReadSerializer(request.user)
         return Response(serializer.data)
+
+
+class LoginView(views.APIView):
+
+    def post(self, request, format=None):
+        serializer = LoginSerializer(request.POST or None)
+
+        if serializer.is_valid():
+            response = {
+                'message': 'success'
+            }
+            return Response(response)
+        return Response(serializer.errors)

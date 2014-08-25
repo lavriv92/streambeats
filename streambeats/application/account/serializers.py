@@ -25,3 +25,7 @@ class UserWriteSerializer(serializers.ModelSerializer):
             'password'
         )
         model = User
+
+
+class LoginSerializer(serializers.Serializer):
+    pass
