@@ -10,4 +10,5 @@ urlpatterns = patterns('',
 
     #Api
     url(r'^api/account/', include('application.account.apis')),
+    url(r'^api/tracks/', include('application.tracks.apis')),
 )

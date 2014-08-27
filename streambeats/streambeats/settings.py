@@ -47,6 +47,7 @@ INTERNAL_APPS = (
 
 STREAMBEATS_APPS = (
     'application.account',
+    'application.tracks',
 )
 
 INSTALLED_APPS = DJANGO_APPS + STREAMBEATS_APPS + INTERNAL_APPS
