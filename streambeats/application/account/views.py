@@ -1,11 +1,14 @@
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+
 from rest_framework import views
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
+from .forms import LoginForm, RegisterForm
 from .models import User
-from .serializers import UserReadSerializer, UserWriteSerializer,\
-    LoginSerializer
+from .serializers import UserReadSerializer, UserWriteSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -34,14 +37,25 @@ class CurrentUserView(views.APIView):
         return Response(serializer.data)
 
 
-class LoginView(views.APIView):
+def signin(request):
+    """
+    login view.
+    url: /account/sign-in
+    """
+    form = LoginForm(request.POST or None)
+    if form.is_valid():
+        return HttpResponseRedirect('/')
+    context = {'form': form}
+    return render(request, 'account/login.html', context)
 
-    def post(self, request, format=None):
-        serializer = LoginSerializer(request.POST or None)
 
-        if serializer.is_valid():
-            response = {
-                'message': 'success'
-            }
-            return Response(response)
-        return Response(serializer.errors)
+def signup(request):
+    """
+    sign-up view
+    url: /account/sign-up
+    """
+    form = RegisterForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context = {'form': form}
+    return render(request, 'account/register.html', context)

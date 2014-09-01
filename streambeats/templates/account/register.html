@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="content account">
+    {% include 'main/sb-header.html' %}
+    <div class="form">
+        <form method="POST">
+            <h2>{% trans 'Register' %}</h2>
+            <div class="input-wrapper">{{ form.username }}</div>
+            <div class="input-wrapper">{{ form.email }}</div>
+            <div class="input-wrapper">{{ form.password }}</div>
+            <div>
+                <button>{% trans 'Register' %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

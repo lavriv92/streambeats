@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib import auth
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
@@ -48,3 +49,67 @@ class UserChangeForm(forms.ModelForm):
 
     def clean_password(self):
         return self.initial['password']
+
+
+class LoginForm(forms.Form):
+    """
+    login form
+    """
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': _('Username or email')
+            }
+        )
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                'placeholder': _('Password')
+            }
+        )
+    )
+
+    def clean(self):
+        cleaned_data = super(LoginForm, self).clean()
+        username = cleaned_data.get('username', None)
+        password = cleaned_data.get('password', None)
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login()
+        return cleaned_data
+
+
+class RegisterForm(forms.ModelForm):
+
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': _('Username')
+            }
+        )
+    )
+
+    email = forms.EmailField(
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': _('Email')
+            }
+        )
+    )
+
+    password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                'placeholder': _('Password')
+            }
+        )
+    )
+
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'email',
+            'password'
+        )

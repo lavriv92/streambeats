@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+input {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 17px;
+    outline: none;
+    border: none;
+    background: #fff;
+}
+
+button {
+    height: 40px;
+    line-height: 40px;
+    background: #ccc;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 50px;
+}
+
+body {
+  background: #f6f6f6;
+  overflow-y: scroll;
+}
+
+header {
+  background: #fff;
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid #d5322e;
+}
+
+header h1 {
+  width: 80%;
+  float: left;
+  display: inline-block;
+  padding-left: 10px;
+  color: #d5322e;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+div.avatar-image {
+  width: 40px;
+  height: 40px;
+  background: #ccc;
+  border-radius: 40px;
+  float: right;
+  line-height: 60px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#content {
+  width: 100%;
+  display: block;
+}
+
+/* account */
+
+.sb-header {
+    height: 300px;
+    background: #999;
+    margin-bottom: -80px;
+}
+
+.form {
+    background: #fff;
+    padding: 20px;
+    padding-bottom: 80px;
+    padding-top: 40px;
+    z-index: 50px;
+    border-radius: 10px;
+    width: 640px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 5px 10px #777;
+}
+
+.form h2 {
+    font-weight: normal;
+    color: #3d6ba2;
+    padding-bottom: 30px;
+}
+
+.form form {
+    margin: 0 auto;
+}
+
+.input-wrapper {
+    margin-bottom: 10px;
+}
+
+.account input {
+    width: 280px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #dcdcdc;
+}
+
+.account button {
+    width: 80px;
+    color: #666;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    font-size: 17px;
+}

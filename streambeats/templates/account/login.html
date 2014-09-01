@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="content account">
+  {% include 'main/sb-header.html' %}
+  <div class="form">
+    <form method="POST">
+      <h2>{% trans 'Login' %}</h2>
+      {% csrf_token %}
+      <div class="input-wrapper">{{ form.username }}</div>
+      <div class="input-wrapper">{{ form.password }}</div>
+      <div>
+        <button>{% trans 'Login' %}</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
