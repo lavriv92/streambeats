@@ -7,7 +7,7 @@ define([
   'text!templates/index.html'
 ], function($, _, Backbone, User, temp) {
   var IndexView = Backbone.View.extend({
-    el: $("#main"),
+    el: $("#ui-view"),
 
     template: _.template(temp),
 

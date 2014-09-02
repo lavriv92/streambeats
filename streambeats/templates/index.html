@@ -1,5 +1,19 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <div id="main"></div>
+    <div id="main">
+        <div id="left">
+            <nav>
+                <li><p>Tracks</p></li>
+                <li><a href="#albums/">Albums</a></li>
+                <li><a href="#artists/">Artists</a></li>
+                <li>Account</li>
+                <li><a href="#account/edit/">Edit</a></li>
+                <li><a href="#/account/detail">Detail</a></li>
+            </nav>
+        </div>
+        <div id="right">
+            <div id="ui-view"></div>
+        </div>
+    </div>
 {% endblock %}

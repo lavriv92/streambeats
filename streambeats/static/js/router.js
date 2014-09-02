@@ -6,12 +6,32 @@ define([
 ], function($, _, Backbone, IndexView) {
   var AppRouter = Backbone.Router.extend({
     routes: {
-      '': 'index'
+      '': 'index',
+      'artists/': 'artists',
+      'artists/:id/': 'artist_detail',
+      'albums/': 'albums',
+      'albums/:id/': 'album_detail'
     },
 
     index: function() {
       var index_view = new IndexView();
       index_view.render();
+    },
+
+    artists: function() {
+       
+    },
+
+    albums: function() {
+        
+    },
+
+    album_detail: function() {
+    
+    },
+
+    artist_detail: function() {
+    
     }
   });
 

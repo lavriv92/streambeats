@@ -1,11 +1,21 @@
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
 
-from .models import Artist, Album, Track
+from .models import Artist, Album, Track, Genre
 from .serializers import ArtistReadSerializer, TrackReadSerializer, \
-    AlbumReadSerializer
+    AlbumReadSerializer, GenreReadSerializer
+
+
+class GenreViewSet(ModelViewSet):
+    permission_classes = (IsAuthenticated, )
+    model = Genre
+
+    def get_serializer_class(self):
+        return GenreReadSerializer
 
 
 class ArtistViewSet(ModelViewSet):
+    permission_classes = (IsAuthenticated, )
     model = Artist
 
     def get_serializer_class(self):
@@ -13,6 +23,7 @@ class ArtistViewSet(ModelViewSet):
 
 
 class AlbumViewSet(ModelViewSet):
+    permission_classes = (IsAuthenticated, )
     model = Album
 
     def get_serializer_class(self):
@@ -20,6 +31,7 @@ class AlbumViewSet(ModelViewSet):
 
 
 class TrackViewSet(ModelViewSet):
+    permission_classes = (IsAuthenticated, )
     model = Track
 
     def get_serializer_class(self):

@@ -4,6 +4,10 @@
   font-family: sans-serif;
 }
 
+.err {
+    color: #dc3931;
+}
+
 input {
     padding-left: 10px;
     padding-right: 10px;
@@ -43,7 +47,6 @@ header h1 {
   padding-left: 10px;
   color: #d5322e;
   font-weight: normal;
-  margin-bottom: 10px;
 }
 
 div.avatar-image {
@@ -66,8 +69,11 @@ div.avatar-image {
 
 .sb-header {
     height: 300px;
-    background: #999;
+    background: url('../img/slide.jpg') no-repeat;
+    background-size: 100% 500px;
     margin-bottom: -80px;
+    overflow: hidden;
+    width: 100%;
 }
 
 .form {
@@ -110,4 +116,15 @@ div.avatar-image {
     border: 1px solid #ccc;
     font-weight: bold;
     font-size: 17px;
+}
+
+#left {
+    float: left;
+    width: 25%;
+}
+
+#right {
+    background: #fff;
+    float: right;
+    width: 75%;
 }

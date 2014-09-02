@@ -8,8 +8,22 @@
     <form method="POST">
       <h2>{% trans 'Login' %}</h2>
       {% csrf_token %}
-      <div class="input-wrapper">{{ form.username }}</div>
-      <div class="input-wrapper">{{ form.password }}</div>
+      <div class="input-wrapper">
+          {{ form.username }}
+          <div>
+            {% for err in form.username.errors %}
+            <small class="err">{{ err }}</small>
+            {% endfor %}
+          </div>
+      </div>
+      <div class="input-wrapper">
+          {{ form.password }}
+          <div>
+              {% for err in form.errors.password %}
+              <small class="err">{{ err }}</small>
+              {% endfor %}
+          </div>
+      </div>
       <div>
         <button>{% trans 'Login' %}</button>
       </div>

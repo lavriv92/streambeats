@@ -6,6 +6,7 @@ from . import views
 
 router = routers.DefaultRouter()
 
+router.register(r'genres', views.GenreViewSet)
 router.register(r'artists', views.ArtistViewSet)
 router.register(r'albums', views.AlbumViewSet)
 router.register(r'tracks', views.TrackViewSet)

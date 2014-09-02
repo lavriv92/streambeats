@@ -70,13 +70,18 @@ class LoginForm(forms.Form):
         )
     )
 
+    def __init__(self, request, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        self.request = request
+
     def clean(self):
         cleaned_data = super(LoginForm, self).clean()
         username = cleaned_data.get('username', None)
         password = cleaned_data.get('password', None)
         user = auth.authenticate(username=username, password=password)
-        if user is not None:
-            auth.login()
+        if user is None:
+            raise forms.ValidationError(_('Login failed'))
+        auth.login(self.request, user)
         return cleaned_data
 
 

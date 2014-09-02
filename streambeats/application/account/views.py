@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.views.generic import FormView
+from django.contrib import auth
 
 from rest_framework import views
 from rest_framework import viewsets
@@ -49,6 +51,20 @@ def signin(request):
     return render(request, 'account/login.html', context)
 
 
+class SignInView(FormView):
+    template_name = 'account/login.html'
+    form_class = LoginForm
+    success_url = '/'
+
+    def get_form_kwargs(self, *args, **kwargs):
+        form_kwargs = super(SignInView,
+                            self).get_form_kwargs(*args, **kwargs)
+        form_kwargs.update({
+            'request': self.request
+        })
+        return form_kwargs
+
+
 def signup(request):
     """
     sign-up view
@@ -59,3 +75,8 @@ def signup(request):
         form.save()
     context = {'form': form}
     return render(request, 'account/register.html', context)
+
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect('/')
