@@ -39,18 +39,6 @@ class CurrentUserView(views.APIView):
         return Response(serializer.data)
 
 
-def signin(request):
-    """
-    login view.
-    url: /account/sign-in
-    """
-    form = LoginForm(request.POST or None)
-    if form.is_valid():
-        return HttpResponseRedirect('/')
-    context = {'form': form}
-    return render(request, 'account/login.html', context)
-
-
 class SignInView(FormView):
     template_name = 'account/login.html'
     form_class = LoginForm
@@ -75,6 +63,12 @@ def signup(request):
         form.save()
     context = {'form': form}
     return render(request, 'account/register.html', context)
+
+
+class SignUpView(FormView):
+    template_name = 'account/register.html'
+    form_class = RegisterForm
+    success_url = '/'
 
 
 def logout(request):

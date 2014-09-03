@@ -6,10 +6,32 @@
     {% include 'main/sb-header.html' %}
     <div class="form">
         <form method="POST">
+            {% csrf_token %}
             <h2>{% trans 'Register' %}</h2>
-            <div class="input-wrapper">{{ form.username }}</div>
-            <div class="input-wrapper">{{ form.email }}</div>
-            <div class="input-wrapper">{{ form.password }}</div>
+            <div class="input-wrapper">
+                {{ form.username }}
+                <div>
+                    {% for err in form.username.errors %}
+                    <small class="err">{{ err }}</small>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="input-wrapper">
+                {{ form.email }}
+                <div>
+                    {% for err in form.email.errors %}
+                    <small class="err">{{ err }}</small>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="input-wrapper">
+                {{ form.password }}
+                <div>
+                    {% for err in form.password.errors %}
+                    <small class="err">{{ err }}</small>
+                    {% endfor %}
+                </div>
+            </div>
             <div>
                 <button>{% trans 'Register' %}</button>
             </div>

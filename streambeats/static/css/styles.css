@@ -128,3 +128,23 @@ div.avatar-image {
     float: right;
     width: 75%;
 }
+
+.index-login { 
+    padding: 20px;
+    width: 280px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.index-login>div>a {
+    background: #ccc;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: -115px;
+    display: block;
+    text-decoration: none;
+    font-weight: bolder;
+    border-radius: 5px;
+    background: #52dd3f;
+    color: #fff;
+}
