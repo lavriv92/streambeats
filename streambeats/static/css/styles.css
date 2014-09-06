@@ -19,14 +19,13 @@ input {
     background: #fff;
 }
 
-button {
+/*button {
     height: 40px;
     line-height: 40px;
     background: #ccc;
     border: 1px solid #ddd;
     border-radius: 5px;
-    width: 50px;
-}
+}*/
 
 body {
   background: #f6f6f6;
@@ -47,6 +46,10 @@ header h1 {
   padding-left: 10px;
   color: #d5322e;
   font-weight: normal;
+}
+
+#left {
+  left: 0;
 }
 
 div.avatar-image {
