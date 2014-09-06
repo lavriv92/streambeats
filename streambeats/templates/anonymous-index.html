@@ -3,9 +3,23 @@
 {% block content %}
 <div class="content">
     {% include 'main/sb-header.html' %}
+
+    <section class="module parallax parallax-1">
+        <div class="container">
+            <h1>Streambeats</h1>
+        </div>
+    </section>
+
+    <section class="module content">
+        <div class="container">
+            <h2>Music</h2>
+            <p>Music doesn't lie. If there is something to be changed in this world, then it can only happen through music.<strong>Jimi Hendrix</strong></p>
+            <p>Music is everybody's possession. It's only publishers who think that people own it. <strong>John Lennon</strong></p>
+        </div>
+    </section>
     <div class="index-login">
-        <div><a href="/account/sign-in/">Sign in</a></div>
-        <div><a href="/account/sign-up/">Getting started</a></div>
+        <div><a class="btn btn-default" href="/account/sign-in/">Sign in</a></div>
+        <div><a class="btn btn-default" href="/account/sign-up/">Getting started</a></div>
     </div>
 </div>
 {% endblock %}
