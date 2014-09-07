@@ -133,7 +133,8 @@ div.avatar-image {
 }
 
 .main {
-  width: 85%;
+  width: 75%;
+  float: right;
 }
 
 #right {

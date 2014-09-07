@@ -1,20 +1,16 @@
-define([
-  'jquery',
-  'underscore',
-  'backbone',
-  'core/views/index_view',
-  'music/views/tracks_view',
-  'music/views/albums_view',
-  'music/views/artists_view'
-], function($, _, Backbone, IndexView, 
-  TracksView, AlbumsView, ArtistsView) {
-  var AppRouter = Backbone.Router.extend({
+define(['jquery', 'underscore', 'backbone','core/views/index_view',
+    'music/views/tracks_view', 'music/views/albums_view',
+    'music/views/artists_view', 'account/views/edit_view'
+], function($, _, Backbone, 
+  IndexView, TracksView, AlbumsView, ArtistsView, AccountEditView) {  
+    var AppRouter = Backbone.Router.extend({
     routes: {
       '': 'index',
       'artists/': 'artists',
       'artists/:id/': 'artist_detail',
       'albums/': 'albums',
-      'albums/:id/': 'album_detail'
+      'albums/:id/': 'album_detail',
+      'account/edit/': 'edit_account'
     },
 
     index: function() {
@@ -23,7 +19,6 @@ define([
     },
 
     artists: function() {
-      console.log(ArtistsView);
       var artists_view = new ArtistsView();
       artists_view.render();
     },
@@ -39,6 +34,11 @@ define([
 
     artist_detail: function() {
     
+    },
+
+    edit_account: function() {
+      var edit_view = new AccountEditView();
+      edit_view.render();
     }
   });
 
