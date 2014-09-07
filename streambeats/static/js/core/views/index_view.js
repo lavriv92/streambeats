@@ -1,8 +1,5 @@
 'use strict';
-define([
-  'jquery',
-  'underscore',
-  'backbone',
+define(['jquery', 'underscore', 'backbone',
   '../models/current_user',
   'text!templates/index.html'
 ], function($, _, Backbone, User, temp) {

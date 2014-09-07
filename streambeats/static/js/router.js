@@ -2,8 +2,12 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'core/views/index_view'
-], function($, _, Backbone, IndexView) {
+  'core/views/index_view',
+  'music/views/tracks_view',
+  'music/views/albums_view',
+  'music/views/artists_view'
+], function($, _, Backbone, IndexView, 
+  TracksView, AlbumsView, ArtistsView) {
   var AppRouter = Backbone.Router.extend({
     routes: {
       '': 'index',
@@ -19,11 +23,14 @@ define([
     },
 
     artists: function() {
-       
+      console.log(ArtistsView);
+      var artists_view = new ArtistsView();
+      artists_view.render();
     },
 
     albums: function() {
-        
+      var albums_view = new AlbumsView();
+      albums_view.render();
     },
 
     album_detail: function() {

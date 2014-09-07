@@ -40,6 +40,7 @@ header {
 }
 
 header h1 {
+  font-family: "Roboto Slab" serif;
   width: 80%;
   float: left;
   display: inline-block;
@@ -72,7 +73,7 @@ div.avatar-image {
 
 .sb-header {
     height: 300px;
-    background: url('../img/slide.jpg') no-repeat;
+    background: url('../img/guitar.jpg') no-repeat;
     background-size: 100% 500px;
     margin-bottom: -80px;
     overflow: hidden;
@@ -114,16 +115,25 @@ div.avatar-image {
 
 .account button {
     width: 80px;
-    color: #666;
-    background: #fff;
-    border: 1px solid #ccc;
+    color: #fff;
+    background: #52dd8e;
+    border-radius: 5px;
     font-weight: bold;
     font-size: 17px;
+    box-shadow: none;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border: none;
+    width: 150px;
 }
 
 #left {
     float: left;
     width: 25%;
+}
+
+.main {
+  width: 85%;
 }
 
 #right {
@@ -132,7 +142,8 @@ div.avatar-image {
     width: 75%;
 }
 
-/*.index-login {
+.index-login {
+    padding-top: 100px;
     padding: 20px;
     width: 280px;
     margin: 0 auto;
@@ -143,14 +154,14 @@ div.avatar-image {
     background: #ccc;
     padding-top: 15px;
     padding-bottom: 15px;
-    margin-top: -115px;
+    margin-bottom: 10px;
     display: block;
     text-decoration: none;
     font-weight: bolder;
     border-radius: 5px;
-    background: #52dd3f;
+    background: #52dd8e;
     color: #fff;
-}*/
+}
 
 /* ============================================================
   PRIMARY STRUCTURE
@@ -191,7 +202,7 @@ section.module.parallax {
 section.module.parallax h1 {
   color: rgba(255, 255, 255, 0.8);
   font-size: 48px;
-  line-height: 600px;
+  line-height: 250px;
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
