@@ -1,3 +1,4 @@
+'use strict';
 define(['jquery', 'underscore', 'backbone',
     '../collections/albums', 
     'text!templates/albums.html'], function($, _, Backbone, Albums, t) {
@@ -9,10 +10,12 @@ define(['jquery', 'underscore', 'backbone',
 
     initialize: function() {
       this.collection.fetch();
+      this.collection.bind('reset', this.render, this);
     },
 
-    render: function() {
-      this.$el.html(this.template);  
+    render: function() {  
+      console.log(this.collection.toJSON());
+      this.$el.html(this.template);
     }
   });
 

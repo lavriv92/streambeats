@@ -1,4 +1,5 @@
 *.pyc
 .idea/*
 streambeats/static/libs
+streambeats/static/uploads
 streambeats/db.sqlite3

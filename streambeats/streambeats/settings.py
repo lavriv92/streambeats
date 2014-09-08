@@ -46,8 +46,10 @@ INTERNAL_APPS = (
 )
 
 STREAMBEATS_APPS = (
+    'application.main',
     'application.account',
     'application.tracks',
+    'application.uploads',
 )
 
 INSTALLED_APPS = DJANGO_APPS + STREAMBEATS_APPS + INTERNAL_APPS
@@ -105,4 +107,27 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
-IMAGE_PROFILES = {}
+IMAGE_SIZES = {
+    'artist': {
+        'normal': {
+            'width': 150,
+            'height': 150
+        },
+        'thumbnail': {
+            'with': 50,
+            'height': 50
+        }
+    },
+    'album': {
+        'normal': {
+            'width': 150,
+            'height': 150
+        },
+        'thumbnail': {
+            'width': 50,
+            'height': 50
+        }
+    }
+}
+
+UPLOADS_PATH = os.path.join(BASE_DIR, 'static', 'uploads')
