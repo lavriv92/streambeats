@@ -108,26 +108,12 @@ STATICFILES_DIRS = (
 STATIC_URL = '/static/'
 
 IMAGE_SIZES = {
-    'artist': {
-        'normal': {
-            'width': 150,
-            'height': 150
-        },
-        'thumbnail': {
-            'with': 50,
-            'height': 50
-        }
-    },
-    'album': {
-        'normal': {
-            'width': 150,
-            'height': 150
-        },
-        'thumbnail': {
-            'width': 50,
-            'height': 50
-        }
-    }
+    'normal': (150, 150),
+    'thumbnail': (50, 50)
 }
 
-UPLOADS_PATH = os.path.join(BASE_DIR, 'static', 'uploads')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'uploads')
+
+MEDIA_URL = '/static/uploads/'
+
+UPLOADS_PATH = 'static/uploads'

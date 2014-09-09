@@ -26,4 +26,4 @@ class FriendCircleAdmin(admin.ModelAdmin):
 
 
 admin.site.register(User, UserAdmin)
-admin.site.register(FriendCircle, FriendCircleAdmin)
+#admin.site.register(FriendCircle, FriendCircleAdmin)

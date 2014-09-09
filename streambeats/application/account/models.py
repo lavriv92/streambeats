@@ -42,7 +42,6 @@ class UserManager(BaseUserManager):
         return user
 
 
-
 class User(AbstractBaseUser):
     """
     Custom user model
@@ -64,10 +63,9 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(_('is admin'), default=False)
 
     objects = UserManager()
-
     USERNAME_FIELD = 'username'
 
-    class  Meta:
+    class Meta:
         verbose_name = _('user')
         verbose_name_plural = _('users')
         ordering = ('-created', )
@@ -97,6 +95,7 @@ class User(AbstractBaseUser):
 
 
 class FriendCircle(models.Model):
+    name = models.CharField(_('name'), max_length=120)
     owner = models.ForeignKey(User, verbose_name=_('owner'))
     members = models.ManyToManyField(
         User,
@@ -114,3 +113,4 @@ class FriendCircle(models.Model):
 
     class Meta:
         ordering = ('created', )
+        verbose_name = _('friend circle')
