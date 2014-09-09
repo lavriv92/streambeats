@@ -10,12 +10,12 @@ define(['jquery', 'underscore', 'backbone',
 
     initialize: function() {
       this.collection.fetch();
-      this.collection.bind('reset', this.render, this);
+      this.collection.bind('all', this.render, this);
     },
 
     render: function() {  
-      console.log(this.collection.toJSON());
-      this.$el.html(this.template);
+      this.$el.html(this.template({'albums': this.collection.toJSON()}));
+      return this;
     }
   });
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from application.uploads.models import File, Image
@@ -102,3 +103,16 @@ class Track(models.Model):
 
     class Meta:
         ordering = ('created', )
+
+
+class PlayList(models.Model):
+    name = models.CharField(_('name'), max_length=200)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL,
+                              verbose_name=_('owner'))
+    tracks = models.ManyToManyField(Track)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        ordering = ('name', )

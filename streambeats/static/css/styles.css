@@ -53,6 +53,15 @@ header h1 {
   left: 0;
 }
 
+.artist {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.artist h3 {
+  text-align: center;
+}
+
 div.avatar-image {
   width: 40px;
   height: 40px;

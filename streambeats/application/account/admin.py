@@ -2,8 +2,9 @@ from django.contrib import admin
 from django.contrib.auth.models import User as DjangoUser, Group
 from django.contrib.auth.admin import UserAdmin
 
-from .models import User
+from .models import User, FriendCircle
 from .forms import UserCreationForm, UserChangeForm
+
 
 #admin.site.unregister(DjangoUser)
 admin.site.unregister(Group)
@@ -20,5 +21,9 @@ class UserAdmin(UserAdmin):
     search_fields = ('username', )
 
 
-admin.site.register(User, UserAdmin)
+class FriendCircleAdmin(admin.ModelAdmin):
+    list_display = ('name', )
 
+
+admin.site.register(User, UserAdmin)
+admin.site.register(FriendCircle, FriendCircleAdmin)

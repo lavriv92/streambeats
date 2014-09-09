@@ -4,8 +4,6 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
-from .utils import get_upload_path
-
 
 class Image(models.Model):
     """
@@ -26,12 +24,12 @@ class Image(models.Model):
         verbose_name=_('owner')
     )
     image_type = models.CharField(max_length=50, choices=TYPES)
-    image = models.FileField(
-        upload_to=get_upload_path('images'),
+    image = models.ImageField(
+        upload_to='images',
         verbose_name=_('image')
     )
-    thumbnail = models.FileField(
-        upload_to=get_upload_path('thumbnails'),
+    thumbnail = models.ImageField(
+        upload_to='thumbnails',
         blank=True, null=True,
         verbose_name=_('thumbnail')
     )
@@ -47,13 +45,19 @@ class Image(models.Model):
     def src(self):
         return self.image.url
 
+    @property
+    def thumbnail_src(self):
+        if self.thumbnail:
+            return self.thumbnail.url
+        return None
+
 
 class File(models.Model):
     """
     File model
     """
     file = models.FileField(
-        upload_to=get_upload_path('files'),
+        upload_to='files',
         verbose_name=_('File')
     )
     created = models.DateTimeField(auto_now_add=True)

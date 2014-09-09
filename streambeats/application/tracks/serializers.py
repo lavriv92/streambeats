@@ -1,5 +1,8 @@
 from rest_framework import serializers
 
+from application.uploads.serializers import ImageSimpleSerializer, \
+    FileSimpleSerializer
+
 from .models import Artist, Album, Track, Genre
 
 
@@ -28,21 +31,27 @@ class GenreReadSerializer(serializers.ModelSerializer):
 
 class TrackSimpleSerializer(serializers.ModelSerializer):
 
+    track_file = FileSimpleSerializer()
+
     class Meta:
         model = Track
         fields = (
             'id',
+            'track_file',
             'name',
         )
 
 
 class ArtistReadSerializer(serializers.ModelSerializer):
 
+    image = ImageSimpleSerializer()
+
     class Meta:
         model = Artist
         fields = (
             'id',
             'name',
+            'image',
             'description',
             'created',
             'updated',
@@ -61,11 +70,14 @@ class ArtistSimpleSerializer(serializers.ModelSerializer):
 
 class AlbumReadSerializer(serializers.ModelSerializer):
 
+    image = ImageSimpleSerializer()
+
     class Meta:
         model = Album
         fields = (
             'id',
             'name',
+            'image',
             'description',
         )
 

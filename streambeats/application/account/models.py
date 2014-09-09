@@ -94,3 +94,23 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+
+class FriendCircle(models.Model):
+    owner = models.ForeignKey(User, verbose_name=_('owner'))
+    members = models.ManyToManyField(
+        User,
+        related_name='members',
+        verbose_name=_('members')
+    )
+
+    created = models.DateTimeField(auto_now_add=True,
+                                   verbose_name=_('created'))
+    updated = models.DateTimeField(auto_now=True,
+                                   verbose_name=_('updated'))
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        ordering = ('created', )
