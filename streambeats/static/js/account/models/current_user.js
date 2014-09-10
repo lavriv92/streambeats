@@ -1,4 +1,5 @@
-define(['underscore', 'backbone'], function(_, Backbone) {
+define(['underscore', 'backbone'], 
+function(_, Backbone) {
   
   var CurrentUser = Backbone.Model.extend({
     urlRoot: '/api/account/users/current',

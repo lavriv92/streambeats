@@ -1,12 +1,12 @@
 define(['jquery', 'underscore', 'backbone','core/views/index_view',
     'music/views/tracks_view', 'music/views/albums_view',
     'music/views/artists_view', 'account/views/edit_view',
-    'music/views/artist_item',
+    'music/views/artist_item', 'music/views/album_item',
     'music/models/album',
     'music/models/artist'
 ], function($, _, Backbone, 
   IndexView, TracksView, AlbumsView, 
-  ArtistsView, AccountEditView, ArtistItem, Album, Artist) {  
+  ArtistsView, AccountEditView, ArtistItem, AlbumItem, Album, Artist) {  
     var AppRouter = Backbone.Router.extend({
     routes: {
       '': 'index',
@@ -14,7 +14,7 @@ define(['jquery', 'underscore', 'backbone','core/views/index_view',
       'artists/:id/': 'artist_detail',
       'albums/': 'albums',
       'albums/:id/': 'album_detail',
-      'artists/:id': 'artist_detail',
+      'artists/:id/': 'artist_detail',
       'account/edit/': 'edit_account'
     },
 
@@ -40,8 +40,11 @@ define(['jquery', 'underscore', 'backbone','core/views/index_view',
       artist_item.render();
     },
 
-    album_detail: function() {
-    
+    album_detail: function(id) {
+      var album = new Album({id: id});
+      album.fetch();
+      album_item = new AlbumItem({model: album});
+      album_item.render();
     },
 
     edit_account: function() {

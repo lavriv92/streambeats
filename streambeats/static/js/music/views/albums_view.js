@@ -1,7 +1,7 @@
 'use strict';
-define(['jquery', 'underscore', 'backbone',
-    '../collections/albums', 
-    'text!templates/albums.html'], function($, _, Backbone, Albums, t) {
+define(['jquery', 'underscore', 'backbone', '../collections/albums', 
+    'text!templates/albums.html'], 
+function($, _, Backbone, Albums, t) {
   var AlbumsView = Backbone.View.extend({
     el: $('#ui-view'),
     template: _.template(t),

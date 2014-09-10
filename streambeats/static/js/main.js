@@ -5,6 +5,21 @@ requirejs.config({
     backbone: '../libs/backbone/backbone',
     text: '../libs/requirejs-text/text',
     templates: '../templates'
+  },
+
+  shim: {
+    'jquery': {
+      depts: [],
+      exports: '$'
+    },
+    'underscore': {
+      depts: [],
+      exports: '_'
+    },
+    'backbone': {
+      depts: ['jquery', 'underscore'],
+      exports: 'Backbone'
+    }
   }
 });
 

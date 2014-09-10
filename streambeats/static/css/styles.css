@@ -241,3 +241,13 @@ section.module.parallax-2 {
     font-size: 110px;
   }
 }
+
+.music-description {
+  float: right;
+  width: 70%;
+}
+
+.music-image {
+  float: left;
+  width: 30%;
+}
