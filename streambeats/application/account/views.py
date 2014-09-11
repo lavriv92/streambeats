@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView
 from django.contrib import auth
@@ -51,18 +50,6 @@ class SignInView(FormView):
             'request': self.request
         })
         return form_kwargs
-
-
-def signup(request):
-    """
-    sign-up view
-    url: /account/sign-up
-    """
-    form = RegisterForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-    context = {'form': form}
-    return render(request, 'account/register.html', context)
 
 
 class SignUpView(FormView):
