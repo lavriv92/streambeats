@@ -83,6 +83,10 @@ class Track(models.Model):
     """
     Track model
     """
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        verbose_name=_('owner')
+    )
     name = models.CharField(_('name'), max_length=120)
     album = models.ForeignKey(
         Album,
