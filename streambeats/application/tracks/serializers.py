@@ -2,8 +2,9 @@ from rest_framework import serializers
 
 from application.uploads.serializers import ImageSimpleSerializer, \
     FileSimpleSerializer
+from application.account.serializers import UserSimpleSerializer
 
-from .models import Artist, Album, Track, Genre
+from .models import Artist, Album, Track, Genre, PlayList
 
 
 class GenreSimpleSerializer(serializers.ModelSerializer):
@@ -93,7 +94,6 @@ class AlbumSimpleSerializer(serializers.ModelSerializer):
 
 
 class TrackReadSerializer(serializers.ModelSerializer):
-
     album = AlbumSimpleSerializer()
 
     class Meta:
@@ -102,4 +102,21 @@ class TrackReadSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'album',
+            'created',
+            'updated',
+        )
+
+
+class PlayListSerializer(serializers.ModelSerializer):
+    owner = UserSimpleSerializer()
+    tracks = TrackSimpleSerializer()
+
+    class Meta:
+        model = PlayList
+        fields = (
+            'owner',
+            'name',
+            'tracks',
+            'created',
+            'updated'
         )

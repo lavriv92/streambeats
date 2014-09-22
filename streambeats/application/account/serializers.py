@@ -27,5 +27,11 @@ class UserWriteSerializer(serializers.ModelSerializer):
         model = User
 
 
-class LoginSerializer(serializers.Serializer):
-    pass
+class UserSimpleSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        fields = (
+            'id',
+            'username',
+        )
+        model = User

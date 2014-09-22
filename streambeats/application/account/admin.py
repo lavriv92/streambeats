@@ -1,12 +1,11 @@
 from django.contrib import admin
-from django.contrib.auth.models import User as DjangoUser, Group
+from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
 
 from .models import User, FriendCircle
 from .forms import UserCreationForm, UserChangeForm
 
 
-#admin.site.unregister(DjangoUser)
 admin.site.unregister(Group)
 
 
@@ -26,4 +25,4 @@ class FriendCircleAdmin(admin.ModelAdmin):
 
 
 admin.site.register(User, UserAdmin)
-#admin.site.register(FriendCircle, FriendCircleAdmin)
+admin.site.register(FriendCircle, FriendCircleAdmin)

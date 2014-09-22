@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 
-from .models import Artist, Album, Track, Genre
+from .models import Artist, Album, Track, Genre, PlayList
 from .serializers import ArtistReadSerializer, TrackReadSerializer, \
     AlbumReadSerializer, GenreReadSerializer
 
@@ -41,3 +41,13 @@ class TrackViewSet(ModelViewSet):
 
     def get_serializer_class(self):
         return TrackReadSerializer
+
+
+class PlayListViewSet(ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    model = PlayList
+
+    def get_queryset(self):
+        return super(TrackViewSet, self).get_queryset().filter(
+            owner=self.request.user
+        )

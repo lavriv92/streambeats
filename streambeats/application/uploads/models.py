@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db import models
-from django.db.models.signals import pre_save
+from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
@@ -71,6 +71,6 @@ class File(models.Model):
         ordering = ('-created', )
 
 
-@receiver(pre_save, sender=Image)
+@receiver(post_save, sender=Image)
 def upload_path(sender, **kwargs):
     pass
