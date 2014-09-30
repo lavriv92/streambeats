@@ -3,3 +3,5 @@
 streambeats/static/libs
 streambeats/static/uploads
 streambeats/db.sqlite3
+streambeats/node_modules
+streambeats/static/js/
