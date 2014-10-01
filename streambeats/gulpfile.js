@@ -4,7 +4,8 @@ var reactify = require('reactify');
 var stream = require('vinyl-source-stream');
 
 var paths = {
-  index_js: ['./frontend/main.jsx']
+  index_js: ['./frontend/components/main.jsx'],
+  index_css: ['.frontend/stylesheets/*.less']
 };
 
 gulp.task('js', function() {
@@ -15,5 +16,9 @@ gulp.task('js', function() {
     .pipe(gulp.dest('./static/js/'));
 });
 
+gulp.task('compile-less', function() {
+  
+});
 
-gulp.task('default', ['js']);
+
+gulp.task('default', ['js', 'compile-less']);
