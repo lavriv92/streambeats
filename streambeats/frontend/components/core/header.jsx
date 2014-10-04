@@ -5,9 +5,11 @@ var React = require('react');
 module.exports = React.createClass({
   render: function() {
     return (
-      <header id="header">
-        <h1>Streambeats</h1>
-      </header>
+      <div className="row" id="header">
+        <div className="container">
+          <h1>Strembeats</h1>
+        </div>
+      </div>
       )
   }
 });

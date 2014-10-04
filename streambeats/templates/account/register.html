@@ -8,7 +8,7 @@
         <form method="POST">
             {% csrf_token %}
             <h2>{% trans 'Register' %}</h2>
-            <div class="input-wrapper">
+            <div class="btn btn-block input-wrapper">
                 {{ form.username }}
                 <div>
                     {% for err in form.username.errors %}

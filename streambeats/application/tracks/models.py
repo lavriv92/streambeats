@@ -14,7 +14,7 @@ class Genre(models.Model):
                                blank=True, null=True)
     description = models.TextField(verbose_name=_('description'))
     created = models.DateField(verbose_name=_('created'), auto_now_add=True)
-    updated = models.DateTimeField(verbose_name=_('updated'), auto_now=True),
+    updated = models.DateTimeField(verbose_name=_('updated'), auto_now=True)
 
     def __unicode__(self):
         return self.name

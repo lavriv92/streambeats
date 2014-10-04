@@ -3,23 +3,32 @@
 var React = require('react');
 var page = require('page');
 
+var routes = [
+  {
+    'path': '/',
+    'page':<h1>Page1</h1>
+  },
+  {
+    'path': '/test',
+    'page': <h1>Page2</h1>
+  }
+]
+
 module.exports = React.createClass({
 
   getInitialState: function() {
-    return {page: <h1>Page1</h1>}
+    return {page: routes[0]['page']}
   },
   
-  conponentDidMount: function() {
+  componentDidMount: function() {
     var self = this;
 
-    page('/', function() {
-      self.setState({page: <h1>Page1</h1>})
+    routes.map(function(route) {
+      page(route['path'], function() {
+        return self.setState({page: route['page']});
+      });
     });
 
-    page('/test', function() {
-      console.log('hello');
-      self.setState({page: <h1>Page2</h1>});
-    });
 
     page.start();
   },
