@@ -7,7 +7,7 @@ module.exports = React.createClass({
     return (
       <div className="row" id="header">
         <div className="container">
-          <h1>Strembeats</h1>
+          <h1 className="navbar-brand">Strembeats</h1>
         </div>
       </div>
       )

@@ -15,7 +15,8 @@ module.exports = React.createClass({
         <Header/>
         <div className="row">
           <div className="container">
-            <Link path="/test" text="Test link" />
+            <a href="/music/albums">Albums</a>
+            <a href="/music/artists">Artists</a>
             <Router />
           </div>
         </div>

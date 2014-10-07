@@ -3,14 +3,25 @@
 var React = require('react');
 var page = require('page');
 
+var Artists = require('../music/artists.jsx');
+var Albums = require('../music/albums.jsx');
+
 var routes = [
   {
     'path': '/',
     'page':<h1>Page1</h1>
   },
   {
-    'path': '/test',
-    'page': <h1>Page2</h1>
+    'path': '/music/artists',
+    'page': <Artists/>
+  },
+  {
+    'path': '/music/albums',
+    'page': <Albums/>
+  },
+  {
+    'path': '/music/artists/:id',
+    'page': <h1>Artist</h1>
   }
 ]
 
@@ -24,7 +35,7 @@ module.exports = React.createClass({
     var self = this;
 
     routes.map(function(route) {
-      page(route['path'], function() {
+      page(route['path'], function(ctx) {
         return self.setState({page: route['page']});
       });
     });
