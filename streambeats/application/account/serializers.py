@@ -1,13 +1,18 @@
 from rest_framework import serializers
 
+from application.uploads.serializers import ImageSimpleSerializer
+
 from .models import User
 
 
 class UserReadSerializer(serializers.ModelSerializer):
 
+    avatar = ImageSimpleSerializer()
+
     class Meta:
         fields = (
             'id',
+            'avatar',
             'username',
             'email',
             'first_name',
@@ -28,6 +33,8 @@ class UserWriteSerializer(serializers.ModelSerializer):
 
 
 class UserSimpleSerializer(serializers.ModelSerializer):
+
+    avatar = ImageSimpleSerializer()
 
     class Meta:
         fields = (

@@ -64,9 +64,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'streambeats.urls'
+ROOT_URLCONF = 'settings.urls'
 
-WSGI_APPLICATION = 'streambeats.wsgi.application'
+WSGI_APPLICATION = 'settings.wsgi.application'
 
 
 # Database

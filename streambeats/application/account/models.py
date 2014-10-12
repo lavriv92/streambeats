@@ -2,6 +2,8 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
+from application.uploads.models import Image
+
 
 class UserManager(BaseUserManager):
 
@@ -54,6 +56,8 @@ class User(AbstractBaseUser):
         null=True
     )
     username = models.CharField(_('username'), max_length=120, unique=True)
+    avatar = models.ForeignKey(Image, verbose_name=_('avatar'),
+                               blank=True, null=True)
     first_name = models.CharField(_('first_name'), max_length=120,
                                   null=True, blank=True)
     last_name = models.CharField(_('last_name'), max_length=120,
