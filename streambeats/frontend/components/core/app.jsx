@@ -5,19 +5,21 @@ var React = require('react');
 var Header = require('./header.jsx');
 var Footer = require('./footer.jsx');
 var Router = require('./router.jsx');
+var Left = require('./left.jsx');
 
-var Link = require('./link.jsx');
-
-module.exports = React.createClass({
+var App = React.createClass({
   render: function() {
     return (
       <div id="wrapper">
         <Header/>
-        <div className="row">
-          <div className="container">
-            <a href="/music/albums">Albums</a>
-            <a href="/music/artists">Artists</a>
-            <Router />
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-2 col-xs-2">
+              <Left />
+            </div>
+            <div className="col-md-2 col-xs-10">
+              <Router />
+            </div>
           </div>
         </div>
         <Footer/>
@@ -25,3 +27,5 @@ module.exports = React.createClass({
       )
   }
 });
+
+module.exports = App;

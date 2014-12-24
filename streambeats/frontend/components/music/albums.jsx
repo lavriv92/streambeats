@@ -11,7 +11,6 @@ module.exports = React.createClass({
   componentDidMount: function() {},  
   
   render: function() {
-    console.log(Albums);
     return (
         <div>
           <h2 className="page-header">Albums</h2>
