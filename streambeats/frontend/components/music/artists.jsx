@@ -2,11 +2,12 @@
 
 var React = require('react');
 
-module.exports = React.createClass({
+var Artists = React.createClass({
   getInitialState: function() {
     return {};
   },   
-  componentDidMount: function() {},
+  componentDidMount: function() {
+  },
   render: function() {
     return (
         <div>
@@ -16,3 +17,5 @@ module.exports = React.createClass({
         )
   },
 });
+
+module.exports = Artists;

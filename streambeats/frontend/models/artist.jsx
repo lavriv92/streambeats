@@ -4,7 +4,7 @@
 var Backbone = require('backbone');
 
 var Artist = Backbone.Model.extend({
-  url: '/api/music/artist'
+  url: '/api/tracks/artists/'
 });
 
 module.exports = Artist;

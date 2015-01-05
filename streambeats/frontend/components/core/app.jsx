@@ -14,10 +14,10 @@ var App = React.createClass({
         <Header/>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-2 col-xs-2">
+            <div className="col-md-2 col-xs-2 sidebar">
               <Left />
             </div>
-            <div className="col-md-2 col-xs-10">
+            <div className="col-md-10 col-xs-10">
               <Router />
             </div>
           </div>

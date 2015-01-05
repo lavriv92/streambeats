@@ -4,6 +4,8 @@ var Backbone = require('backbone');
 var Album = require('../models/album.jsx');
 
 
-module.exports = Backbone.Collection.extend({
-  model: Album
+var Albums = Backbone.Collection.extend({
+  url: '/api/tracks/albums/'
 });
+
+module.exports = Albums;

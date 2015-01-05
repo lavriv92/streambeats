@@ -3,7 +3,7 @@
 var Backbone = require('backbone');
 
 var Album = Backbone.Model.extend({
-  url: '/api/music/albums'
+  url: '/api/tracks/albums/'
 });
 
 module.exports = Album;

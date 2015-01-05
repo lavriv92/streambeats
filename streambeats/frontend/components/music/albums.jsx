@@ -5,6 +5,9 @@ var Albums = require('../../collections/albums.jsx');
 
 module.exports = React.createClass({
   getInitialState: function() {
+    var albums = new Albums();
+    albums.fetch();
+    console.log(albums);
     return {};
   },  
   
