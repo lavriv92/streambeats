@@ -5,6 +5,7 @@ var page = require('page');
 
 var Artists = require('../music/artists.jsx');
 var Albums = require('../music/albums.jsx');
+var Genres = require('../music/genres.jsx');
 
 var routes = [
   {
@@ -22,8 +23,13 @@ var routes = [
   {
     'path': '/music/artists/:id',
     'page': <h1>Artist</h1>
+  },
+  {
+    'path': '/music/genres',
+    'page': <Genres />
   }
-]
+
+];
 
 module.exports = React.createClass({
 

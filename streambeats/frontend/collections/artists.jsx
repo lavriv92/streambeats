@@ -4,7 +4,8 @@ var Backbone = require('backbone');
 var Artist = require('../models/artist.jsx');
 
 var Artists = Backbone.Collection.extend({
-  model: Artist
+  url: '/api/tracks/artists/'
 });
+
 
 module.exports = Artists;

@@ -1,21 +1,34 @@
-/** React.DOM */
+/** @jsx React.DOM */
 
 var React = require('react');
+var Artists = require('../../collections/artists.jsx');
 
-var Artists = React.createClass({
+module.exports = React.createClass({
+  collection: new Artists(),
   getInitialState: function() {
-    return {};
-  },   
+    return {artists: []};
+  },
+
   componentDidMount: function() {
+    var self = this;
+    this.collection.on('sync', function(data) {
+      self.setState({artists: self.collection.toJSON()});
+    });
+    this.collection.fetch();
   },
   render: function() {
+    var ArtistsNodes = this.state.artists.map(function(artist) {
+      return (<div>
+                <div>{artist.name}</div>
+              </div>
+        )
+      });
+
     return (
         <div>
-          <h2 className="page-header">Artists</h2>
-          <div></div>
+          <h2>Artists</h2>
+          <div>{ArtistsNodes}</div>
         </div>
         )
   },
 });
-
-module.exports = Artists;

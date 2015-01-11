@@ -6,6 +6,7 @@ var Header = require('./header.jsx');
 var Footer = require('./footer.jsx');
 var Router = require('./router.jsx');
 var Left = require('./left.jsx');
+var Menu = require('./menu.jsx');
 
 var App = React.createClass({
   render: function() {
@@ -14,11 +15,14 @@ var App = React.createClass({
         <Header/>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-2 col-xs-2 sidebar">
-              <Left />
-            </div>
+            <Menu />
+          </div>
+          <div className="row">
             <div className="col-md-10 col-xs-10">
               <Router />
+            </div>
+            <div className="col-md-2 col-xs-2 sidebar">
+              <Left />
             </div>
           </div>
         </div>
