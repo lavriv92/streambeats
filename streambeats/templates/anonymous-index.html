@@ -1,27 +1,27 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 {% block content %}
-<div class="content">
-    <section class="row module parallax parallax-1">
-        <div class="container">
-            <div class="index-login">
-              <div>
-                <a href="{% url 'account:signin'%}">Sign in</a>
-              </div>
-              <div>
-                <a href="{% url 'account:signup' %}">Getting started</a>
-              </div>
-            </div>
-            <h1>STREAMBEATS</h1>
+<div class="container-fluid" id="header">
+    <div class="row">
+        <h1 class="navbar brand">Streambeats</h1>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+       <img width="100%" src="{% static 'img/35H.jpg' %}">
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+        <div class="col-md-10">
+         <div class="index-login">
+          <div>
+            <a class="btn btn-lg btn-info" href="{% url 'account:signin'%}">Sign in</a>
+            <a class="btn btn-lg btn-info" href="{% url 'account:signup' %}">Getting started</a>
+          </div>
         </div>
-    </section>
-
-    <section class="row module content">
-        <div class="container">
-            <h2>Music</h2>
-            <p>Music doesn't lie. If there is something to be changed in this world, then it can only happen through music.<strong>Jimi Hendrix</strong></p>
-            <p>Music is everybody's possession. It's only publishers who think that people own it. <strong>John Lennon</strong></p>
-        </div>
-    </section>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
 </div>
 {% endblock %}
