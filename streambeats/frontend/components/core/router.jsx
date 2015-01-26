@@ -1,53 +1,48 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var page = require('page');
+var Backbone = require('backbone');
 
 var Artists = require('../music/artists.jsx');
 var Albums = require('../music/albums.jsx');
 var Genres = require('../music/genres.jsx');
 
-var routes = [
-  {
-    'path': '/',
-    'page':<h1>Page1</h1>
-  },
-  {
-    'path': '/music/artists',
-    'page': <Artists/>
-  },
-  {
-    'path': '/music/albums',
-    'page': <Albums/>
-  },
-  {
-    'path': '/music/artists/:id',
-    'page': <h1>Artist</h1>
-  },
-  {
-    'path': '/music/genres',
-    'page': <Genres />
-  }
-
-];
 
 module.exports = React.createClass({
 
   getInitialState: function() {
-    return {page: routes[0]['page']}
+    return {page: <h1>Home</h1>}
   },
-  
-  componentDidMount: function() {
-    var self = this;
 
-    routes.map(function(route) {
-      page(route['path'], function(ctx) {
-        return self.setState({page: route['page']});
-      });
+  componentWillMount: function() {
+    var Router = Backbone.Router.extend({
+      routes: {
+        '': this.routeHome,
+        'music/artists/': this.routeArtists,
+        'music/albums/': this.routeAlbums
+      }
     });
 
+    new Router();
+    Backbone.history.start({pushState: true});
+  },
 
-    page.start();
+  routeHome: function() {
+    this.setState({
+      page: <h1>Hello</h1>
+    });
+  },
+
+  routeArtists: function() {
+    this.setState({
+      page: <Artists/>
+    });
+  },
+
+  routeAlbums: function() {
+    this.setState({
+      page: <Albums/>
+    });
   },
 
   render: function() {

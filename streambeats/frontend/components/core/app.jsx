@@ -19,7 +19,7 @@ var App = React.createClass({
           </div>
           <div className="row">
             <div className="col-md-10 col-xs-10">
-              <Router />
+                <Router />
             </div>
             <div className="col-md-2 col-xs-2 sidebar">
               <Left />
