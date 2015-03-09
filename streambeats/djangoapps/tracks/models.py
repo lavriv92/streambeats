@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-from application.uploads.models import File, Image
+from djangoapps.uploads.models import File, Image
 
 
 class Genre(models.Model):

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from application.uploads.serializers import ImageSimpleSerializer
+from djangoapps.uploads.serializers import ImageSimpleSerializer
 
 from .models import User
 

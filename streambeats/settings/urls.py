@@ -5,11 +5,11 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^account/', include('application.account.urls',
+    url(r'^account/', include('djangoapps.account.urls',
                               namespace='account')),
 
     #Api
-    url(r'^api/account/', include('application.account.apis')),
-    url(r'^api/tracks/', include('application.tracks.apis')),
-    url(r'^/*', 'application.main.views.home', name='home')
+    url(r'^api/account/', include('djangoapps.account.apis')),
+    url(r'^api/tracks/', include('djangoapps.tracks.apis')),
+    url(r'^/*', 'djangoapps.main.views.home', name='home')
 )

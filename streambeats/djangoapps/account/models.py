@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-from application.uploads.models import Image
+from djangoapps.uploads.models import Image
 
 
 class UserManager(BaseUserManager):

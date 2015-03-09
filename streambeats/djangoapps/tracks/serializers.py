@@ -1,8 +1,10 @@
 from rest_framework import serializers
 
-from application.uploads.serializers import ImageSimpleSerializer, \
+from djangoapps.uploads.serializers import (
+    ImageSimpleSerializer,
     FileSimpleSerializer
-from application.account.serializers import UserSimpleSerializer
+)
+from djangoapps.account.serializers import UserSimpleSerializer
 
 from .models import Artist, Album, Track, Genre, PlayList
 
