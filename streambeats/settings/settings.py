@@ -46,10 +46,10 @@ INTERNAL_APPS = (
 )
 
 STREAMBEATS_APPS = (
-    'application.main',
-    'application.account',
-    'application.tracks',
-    'application.uploads',
+    'djangoapps.main',
+    'djangoapps.account',
+    'djangoapps.tracks',
+    'djangoapps.uploads',
 )
 
 INSTALLED_APPS = DJANGO_APPS + STREAMBEATS_APPS + INTERNAL_APPS
