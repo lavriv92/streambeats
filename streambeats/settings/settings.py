@@ -41,8 +41,7 @@ DJANGO_APPS = (
 )
 
 INTERNAL_APPS = (
-    'south',
-    'rest_framework'
+    'rest_framework',
 )
 
 STREAMBEATS_APPS = (
